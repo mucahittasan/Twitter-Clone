@@ -1,0 +1,102 @@
+.login-form{
+    background-color: #242D34;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form{
+        background-color: black;
+        width: 600px;
+        height: 550px;
+        border-radius: 16px;
+        padding: 10px;
+
+
+        .form-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .close-button{
+                border: none;
+                background: transparent;
+                font-size: 18px;
+                color: #fff;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: 200ms all ease-in;
+
+                &:hover{
+                    background-color: #181919;
+                }
+            }
+
+            svg{
+                font-size: 30px;
+            }
+        }
+
+        .form-content{
+            display: flex;
+            flex-direction: column;
+            margin: 40px auto;
+            max-width: 60%;
+            row-gap: 10px;
+
+            @media (max-width: 550px) {
+                width: 100%;
+            }
+
+            h3{
+                font-size: 30px;
+            }
+
+            input{
+                height: 40px;
+                border: 1px solid #242D34;
+                padding: 0 10px;
+                background: transparent;
+                border-radius: 4px;
+                outline: none;
+                color: white;
+                font-size: 16px;
+            }
+
+            button {
+                height: 35px;
+                border: none;
+                font-size: 16px;
+                font-weight: 500;
+                border-radius: 30px;
+                margin-top: 40px;
+                cursor: pointer;
+                transition: 200ms all ease;
+
+                &:hover{
+                    background-color: #D7DBDC;
+                }
+            }
+        }
+
+        .form-footer{
+            max-width: 60%;
+            margin: 0 auto;
+
+            @media (max-width: 550px) {
+                max-width: 100%;
+            }
+
+            a {
+                color: $blue-color;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

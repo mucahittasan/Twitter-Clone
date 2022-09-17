@@ -1,0 +1,114 @@
+.tweet-header{
+    margin-bottom: 20px;
+    padding: 8px 16px ;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.6px);
+    h2 {
+        font-size: 20px;
+    }
+}
+
+
+.tweet-form {
+    padding: 8px 16px;
+
+    form {
+        .form-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            img {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                margin-right: 16px;
+                object-fit: cover;
+            }
+
+            input {
+                background: transparent;
+                border: none;
+                font-size: 20px;
+                width: 100%;
+                outline: none;
+                color: $primary-color;
+            }
+        }
+
+        .form-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            &__icons {
+                margin-left: 66px;
+
+                button, label {
+                    border: none;
+                    background: transparent;
+                    color: $blue-color;
+                    font-size: 16px;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    transition: 200ms all ease-in;
+
+                    &:not(:last-child){
+                        margin-right: 10px;
+                    }
+
+                    &:first-child{
+                        margin-right: 15px;
+                    }
+
+                    &:hover{
+                        background-color: rgba(29, 155, 240, .1);
+                    }
+                }
+
+                label {
+                    input{
+                        display: none;
+                    }
+                }
+                
+            }
+
+            .tweet-button {
+                background-color: $blue-color;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 88px;
+                height: 36px;
+                color: white;
+                font-weight: 500;
+                font-size: 16px;
+                border-radius: 36px;
+                cursor: pointer;
+                transition: 200ms all ease-in;
+
+                &:hover{
+                    background-color: #1b8dd8;
+                }
+
+                &:disabled {
+                    opacity: .6;
+                    cursor: default;
+
+                    &:hover{
+                        background: $blue-color;
+                    }
+                }
+            }
+        }
+    }
+}

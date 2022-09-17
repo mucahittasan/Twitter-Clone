@@ -1,0 +1,65 @@
+.sidebar{   
+    @media (max-width: 870px) {
+        display: none;
+    }
+    &-inner{
+        height: 100%;
+    }
+
+    .search-input{
+        width: 104%;
+        border-radius: 40px;
+        height: 50px;
+        margin-bottom: 20px;
+        margin-top: 6px;
+        background-color: #000;
+        padding-left: 25px;
+        position: sticky;
+        top: 0px;
+        padding-top: 4px;
+
+        label{
+                display: flex;
+                align-items: center;
+                height: 100%;
+                border: 1px solid #202327;
+                border-radius: 40px;
+                background-color: #202327;
+                height: 40px;
+                width: 96%;
+
+            
+            svg{
+                width: 23px;
+                height: 23px;
+                color: #707070;
+                margin-left: 16px;
+            }
+
+            input{
+                border: none;
+                background: transparent;
+                outline: none;
+                color: white;
+                width: 100%;
+                height: 100%;
+                padding-left: 10px;
+                font-size: 16px;
+            }
+
+            
+        &:focus-within{
+                border: 1px solid $blue-color;
+                border-radius: 40px;
+                background-color: black;
+
+            svg{
+                color: $blue-color;
+            }
+        }
+        }
+
+    }
+
+    
+}

@@ -1,0 +1,68 @@
+.explore-area{
+    margin-bottom: 16px;
+    margin-left: 25px;
+
+    .explore-inner{
+        background-color: #16181C;
+        border-radius: 10px;
+        padding: 8px 0;
+
+
+    }
+
+    .explore-header{
+        font-size: 20px;
+        padding: 0 14px;
+        margin-bottom: 14px;
+    }
+
+    .explore-box{
+        padding: 8px 14px;
+        transition: 200ms all ease;
+        cursor: pointer;
+        padding-top: 0;
+
+        &:hover{
+            background-color: #1D1F23;
+        }
+        &__header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #686868;
+
+            button{
+                background: transparent;
+                color: #4c4c4c;
+                font-size: 17px;
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                transition: 200ms all ease-in;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+
+                &:hover {
+                    background: rgba(29, 155, 240, .1);
+                    color: $blue-color;
+                }
+            }
+        }
+        &__content{
+            .hastag{
+                font-size: 15px;
+                font-weight: 500;   
+            }
+
+            .count-tweet{
+                font-size: 13px;
+                color: #686868;
+            }
+    }
+
+    }
+}

@@ -6,6 +6,7 @@ import { createPost } from '../redux/post/postSlice'
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import FileBase64 from 'react-file-base64';
+import { nanoid } from 'nanoid';
 
 
 const TweetForm = () => {
@@ -25,8 +26,12 @@ const TweetForm = () => {
     e.preventDefault();
 
     const post = {
+        id: nanoid(),
         article: article,
-        image: file
+        image: file,
+        detailCheck: false,
+        likeCheck: false,
+        likeCount: 0,
     }
 
     dispatch(createPost(post))

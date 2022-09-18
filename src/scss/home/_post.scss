@@ -80,6 +80,15 @@
                 display: flex;
                 align-items: center;
 
+                @media (max-width: 500px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                &-content{
+                    display: flex;
+                }
+
                 a{
                     color: #fff;
                     font-size: 15px;
@@ -205,6 +214,10 @@
 
         .post-text{
             margin-top: -16px;
+
+            @media (max-width: 500px) {
+                margin-top: 0;
+            }
         }
     }
 }

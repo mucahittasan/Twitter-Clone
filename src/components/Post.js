@@ -1,25 +1,24 @@
-import { BsThreeDots } from 'react-icons/bs'
-import { FaRegComment } from 'react-icons/fa'
-import { AiOutlineRetweet } from 'react-icons/ai'
-import { AiOutlineHeart } from 'react-icons/ai'
-import { MdOutlineIosShare } from 'react-icons/md'
-import {AiOutlineDelete} from 'react-icons/ai'
+import { BsThreeDots } from 'react-icons/bs';
+import { FaRegComment } from 'react-icons/fa';
+import { AiOutlineRetweet } from 'react-icons/ai';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { MdOutlineIosShare } from 'react-icons/md';
+import {AiOutlineDelete} from 'react-icons/ai';
 
-import { useSelector, useDispatch } from 'react-redux'
-import profilePhoto from "../images/photo.jpg";
-import { deletePost, getPosts } from '../redux/post/postSlice'
+import { useSelector } from 'react-redux';
+import { detailCheck, deletePost } from '../redux/post/postSlice';
+import { useDispatch } from 'react-redux';
 
 const Post = ({post}) => {
-    const dispatch = useDispatch();
     const currentUser = useSelector(state => state.users.currentUser);
+    const dispatch = useDispatch();
 
     const formatDate = (newDate) => {
         let today = new Date()
         let date = today.getDate() + '-' + parseInt(today.getMonth() + 1) + '-' + today.getFullYear()
         return date
-    }
+    };
 
-    console.log(currentUser)
 
   return (
       <div className='post'>
@@ -27,18 +26,20 @@ const Post = ({post}) => {
             <img src={currentUser.photo} alt="" />
         </div>
         <div className="post-content">
-            <div className={`post-header`}>
+            <div className={`post-header ${post.detailCheck ? "active" : ""}`}>
                 <div className="post-header__info">
                     <a href="/">{currentUser.name}</a>
-                    <div className='username'>{currentUser.username}</div>
-                    <span>.</span>
-                    <div className="time">{formatDate(post.createdAt)}</div>
+                    <div className='post-header__info-content'>
+                        <div className='username'>{currentUser.username}</div>
+                        <span>.</span>
+                        <div className="time">{formatDate(post.createdAt)}</div>
+                    </div>
                 </div>
-                <button>
+                <button onClick={() => dispatch(detailCheck(post.id))}>
                     <BsThreeDots className='profile-dot' />
                 </button>
                 <div className="post-detail">
-                    <button>
+                    <button onClick={() => dispatch(deletePost(post.id))}>
                         <span>Delete post</span>
                         <AiOutlineDelete />
                     </button>

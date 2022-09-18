@@ -337,6 +337,12 @@ body {
         font-size: 15px;
         display: flex;
         align-items: center; }
+        @media (max-width: 500px) {
+          .post-content .post-header__info {
+            flex-direction: column;
+            align-items: flex-start; } }
+        .post-content .post-header__info-content {
+          display: flex; }
         .post-content .post-header__info a {
           color: #fff;
           font-size: 15px;
@@ -419,6 +425,9 @@ body {
             background: rgba(29, 155, 240, 0.1); }
     .post-content .post-text {
       margin-top: -16px; }
+      @media (max-width: 500px) {
+        .post-content .post-text {
+          margin-top: 0; } }
 
 @media (max-width: 870px) {
   .sidebar {

@@ -211,6 +211,10 @@ body {
 
 .tweet-form {
   padding: 8px 16px; }
+  .tweet-form .choose-image img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0; }
   .tweet-form form .form-input {
     display: flex;
     align-items: center;
@@ -283,6 +287,104 @@ body {
   cursor: pointer;
   border-top: 1px solid rgba(236, 236, 236, 0.3);
   border-bottom: 1px solid rgba(236, 236, 236, 0.3); }
+  .post .post-comment {
+    display: none; }
+  .post .post-comment.active {
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 45, 52, 0.7);
+    z-index: 999;
+    padding-top: 100px; }
+    .post .post-comment.active .post-comment__inner {
+      background-color: black;
+      width: 40%;
+      height: 40%;
+      padding: 10px;
+      border-radius: 10px; }
+      .post .post-comment.active .post-comment__inner .post-comment__close {
+        border: none;
+        background: transparent;
+        font-size: 18px;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 200ms all ease-in;
+        margin-bottom: 20px; }
+        .post .post-comment.active .post-comment__inner .post-comment__close:hover {
+          background-color: #181919; }
+      .post .post-comment.active .post-comment__inner .image img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%; }
+      .post .post-comment.active .post-comment__inner .post-comment__content {
+        display: flex;
+        height: 80%; }
+        .post .post-comment.active .post-comment__inner .post-comment__content form {
+          width: 100%;
+          margin-left: 20px;
+          display: flex;
+          flex-direction: column;
+          height: 100%; }
+          .post .post-comment.active .post-comment__inner .post-comment__content form textarea {
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 18px;
+            width: 100%;
+            resize: none;
+            outline: none;
+            height: 75%; }
+          .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto; }
+            .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons button, .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons label {
+              border: none;
+              background: transparent;
+              color: #1d9bf0;
+              font-size: 16px;
+              cursor: pointer;
+              border-radius: 50%;
+              width: 30px;
+              height: 30px;
+              transition: 200ms all ease-in; }
+              .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons button:not(:last-child), .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons label:not(:last-child) {
+                margin-right: 10px; }
+              .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons button:first-child, .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons label:first-child {
+                margin-right: 15px; }
+              .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons button:hover, .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons label:hover {
+                background-color: rgba(29, 155, 240, 0.1); }
+            .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer__icons label input {
+              display: none; }
+            .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer .tweet-button {
+              background-color: #1d9bf0;
+              border: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 88px;
+              height: 36px;
+              color: white;
+              font-weight: 500;
+              font-size: 16px;
+              border-radius: 36px;
+              cursor: pointer;
+              transition: 200ms all ease-in; }
+              .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer .tweet-button:hover {
+                background-color: #1b8dd8; }
+              .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer .tweet-button:disabled {
+                opacity: .6;
+                cursor: default; }
+                .post .post-comment.active .post-comment__inner .post-comment__content form .form-footer .tweet-button:disabled:hover {
+                  background: #1d9bf0; }
   .post:hover {
     background-color: #080808; }
   .post-image {
@@ -424,7 +526,8 @@ body {
           .post-content .post-actions button:last-child:hover svg {
             background: rgba(29, 155, 240, 0.1); }
     .post-content .post-text {
-      margin-top: -16px; }
+      margin-top: -16px;
+      color: white; }
       @media (max-width: 500px) {
         .post-content .post-text {
           margin-top: 0; } }
@@ -828,3 +931,19 @@ body {
         color: #1d9bf0; }
         .signup-form form .form-footer a:hover {
           text-decoration: underline; }
+
+.post-detail {
+  max-width: 1250px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.4fr; }
+  @media (max-width: 1100px) {
+    .post-detail {
+      grid-template-columns: 0.3fr 2fr 1.4fr; } }
+  @media (max-width: 870px) {
+    .post-detail {
+      grid-template-columns: 0.2fr 1fr; } }
+  .post-detail__container {
+    border-left: 1px solid rgba(236, 236, 236, 0.3);
+    border-right: 1px solid rgba(236, 236, 236, 0.3); }

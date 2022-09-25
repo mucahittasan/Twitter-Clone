@@ -21,9 +21,19 @@ export const postSlice = createSlice({
             const id = action.payload;
             const post = state.posts.find(item => id === item.id);
             post.detailCheck = !post.detailCheck
+        },
+        commentCheck: (state, action) =>  {
+            const id = action.payload;
+            const post = state.posts.find(item => id === item.id);
+            post.commentCheck = !post.commentCheck
+        },
+        addComment: (state, action) => {
+            const post = state.posts.find(post => post.id === action.payload.id);
+            post.comments.push(action.payload);
         }
+
     }
 });
 
 export default postSlice.reducer;
-export const {createPost, deletePost, detailCheck} = postSlice.actions
+export const {createPost, deletePost, detailCheck, commentCheck, addComment} = postSlice.actions

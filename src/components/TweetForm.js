@@ -29,8 +29,10 @@ const TweetForm = () => {
         id: nanoid(),
         article: article,
         image: file,
+        comments: [],
         detailCheck: false,
         likeCheck: false,
+        commentCheck: false,
         likeCount: 0,
     }
 
@@ -50,6 +52,9 @@ const TweetForm = () => {
                 <img src={currentUser.photo} alt="" />
                 <input max={20} onChange={(e) => setArticle(e.target.value)} value={article} type="text" placeholder="Neler oluyor?" />
             </div>
+            {file &&  <div className="choose-image">
+                <img src={file} alt="" />
+            </div>}
             <div className="form-footer">
                 <div className="form-footer__icons">
                     <label>

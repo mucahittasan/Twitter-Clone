@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  <a href="https://note-app-redux.vercel.app/" target="_blank">↪️ Demo</a>
+  <a href="https://twitter-clone-seven-iota.vercel.app/" target="_blank">↪️ Demo</a>
   <br />
   <br />
   

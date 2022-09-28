@@ -31,6 +31,16 @@
             padding: 10px;
             border-radius: 10px;
 
+            @media (max-width: 960px) {
+                width: 80%;
+                height: 50%;
+            }
+
+            @media (max-width: 450px) {
+                width: 90%;
+                height: 40%;
+            }
+
             .post-comment__close {
                 border: none;
                 background: transparent;
@@ -53,6 +63,7 @@
                     width: 48px;
                     height: 48px;
                     border-radius: 50%;
+                    object-fit: cover;
                 }
             }
 

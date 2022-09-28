@@ -11,10 +11,12 @@ import {TbCalendarStats} from 'react-icons/tb'
 import FileBase64 from 'react-file-base64';
 
 import { useSelector } from 'react-redux';
-import { detailCheck, deletePost, commentCheck, addComment } from '../redux/post/postSlice';
+import { detailCheck, deletePost, commentCheck, addComment, likeCheck, likePost } from '../redux/post/postSlice';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { nanoid } from 'nanoid';
+
 
 const Post = ({post}) => {
     const currentUser = useSelector(state => state.users.currentUser);
@@ -29,21 +31,35 @@ const Post = ({post}) => {
         return date;
     };
 
+    const clearStates = () => {
+        setText("")
+        setFile("")
+    }
+
     const handleSubmit = (e) => {
 
         const postComment = {
-            id: post.id,
+            id: nanoid(),
+            postId: post.id,
+            actionName: "comment",
             article: text,
-            image: file
+            image: file,
+            detailCheck: false,
+            likeCheck: false
         };
 
         dispatch(addComment(postComment));
         dispatch(commentCheck(post.id))
 
+        clearStates()
+
         e.preventDefault();
     }
 
-    console.log(post);
+    const handleLike = (post) => {
+        dispatch(likeCheck(post));
+        dispatch(likePost(post))
+    }
 
   return (
       <div className='post'>
@@ -79,7 +95,6 @@ const Post = ({post}) => {
             <img src={currentUser.photo} alt="" />
         </div>
         <div className="post-content">
-            <Link to={`/post/${post.id}`}>
                 <div className={`post-header ${post.detailCheck ? "active" : ""}`}>
                     <div className="post-header__info">
                         <a href="/">{currentUser.name}</a>
@@ -89,7 +104,7 @@ const Post = ({post}) => {
                             <div className="time">{formatDate(post.createdAt)}</div>
                         </div>
                     </div>
-                    <button onClick={() => dispatch(detailCheck(post.id))}>
+                    <button onClick={() => dispatch(detailCheck(post))}>
                         <BsThreeDots className='profile-dot' />
                     </button>
                     <div className="post-detail">
@@ -99,6 +114,7 @@ const Post = ({post}) => {
                         </button>
                     </div>
                 </div>
+            <Link to={`/post/${post.id}`}>
                 <div className="post-text">
                     {post.article}
                 </div>
@@ -118,9 +134,9 @@ const Post = ({post}) => {
                     <AiOutlineRetweet />
                     <span>0</span>
                 </button>
-                <button >
+                <button className={`${post.likeCheck ? 'like-active' : ""}`} onClick={() => handleLike(post)}>
                     <AiOutlineHeart />
-                    <span>0</span>
+                    <span>{post.likeCount}</span>
                 </button>
                 <button>
                     <MdOutlineIosShare />

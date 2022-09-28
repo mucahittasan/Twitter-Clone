@@ -12,9 +12,9 @@ import { nanoid } from 'nanoid';
 const TweetForm = () => {
 
     const dispatch = useDispatch();
-    const currentUser = useSelector(state => state.users.currentUser)
+    const currentUser = useSelector(state => state.users.currentUser);
     const [article, setArticle] = useState('');
-    const [file, setFile] = useState(null)
+    const [file, setFile] = useState(null);
 
 
     const clearForm = () => {
@@ -28,6 +28,7 @@ const TweetForm = () => {
     const post = {
         id: nanoid(),
         article: article,
+        actionName: "post",
         image: file,
         comments: [],
         detailCheck: false,

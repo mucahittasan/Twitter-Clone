@@ -1,4 +1,4 @@
-.post-detail {
+.post-detail-wrapper {
     max-width: 1250px;
     width: 100%;
     margin: 0 auto;
@@ -15,5 +15,40 @@
     &__container {
         border-left: 1px solid rgba(236, 236, 236, 0.3);
         border-right: 1px solid rgba(236, 236, 236, 0.3);
+
+        .content-header{
+            padding: 12px;
+            
+            a {
+              color: white;
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+
+              svg {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                padding: 2px;
+            
+                &:hover{
+                    background-color: rgba(32, 35, 39, 0.5);
+                }
+            }
+              
+              span{
+                margin-left: 20px;
+                font-size: 20px;
+                font-weight: 600;
+              }
+            }
+        }
+
+    
+        .comments-header{
+            padding: 12px;
+        }
     }
+
+
 }

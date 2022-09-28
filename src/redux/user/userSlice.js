@@ -1,10 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const defaultCurrentUser = {
+    email:  "mucahittasan00@gmail.com",
+    name: "Mucahit Tasan",
+    password: "123456",
+    photo: "https://avatars.githubusercontent.com/u/88967412?v=4",
+    username: "tasanmucahit"
+}
+
 export const userSlice = createSlice({
     name: "users",
     initialState: {
         users: localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [],
-        currentUser: localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem("currentUser")) : {},
+        currentUser: localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem("currentUser")) : defaultCurrentUser,
     },
     reducers: {
         createUser: (state, action) => {

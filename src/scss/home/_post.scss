@@ -325,6 +325,8 @@
                     margin-left: 8px;
                     font-size: 12px;
                 }
+
+
             
                 &:first-child:hover{
                     color: $blue-color;
@@ -356,11 +358,20 @@
                 }
             }
 
+            button.like-active {
+                color: #F91880;
+
+                svg{
+                    background-color: #200914;
+                }
+            }
+
         }
 
         .post-text{
             margin-top: -16px;
             color: white;
+            height: 30px;
 
             @media (max-width: 500px) {
                 margin-top: 0;

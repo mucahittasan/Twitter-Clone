@@ -525,9 +525,14 @@ body {
           color: #1d9bf0; }
           .post-content .post-actions button:last-child:hover svg {
             background: rgba(29, 155, 240, 0.1); }
+      .post-content .post-actions button.like-active {
+        color: #F91880; }
+        .post-content .post-actions button.like-active svg {
+          background-color: #200914; }
     .post-content .post-text {
       margin-top: -16px;
-      color: white; }
+      color: white;
+      height: 30px; }
       @media (max-width: 500px) {
         .post-content .post-text {
           margin-top: 0; } }
@@ -932,18 +937,38 @@ body {
         .signup-form form .form-footer a:hover {
           text-decoration: underline; }
 
-.post-detail {
+.post-detail-wrapper {
   max-width: 1250px;
   width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr 1.4fr; }
   @media (max-width: 1100px) {
-    .post-detail {
+    .post-detail-wrapper {
       grid-template-columns: 0.3fr 2fr 1.4fr; } }
   @media (max-width: 870px) {
-    .post-detail {
+    .post-detail-wrapper {
       grid-template-columns: 0.2fr 1fr; } }
-  .post-detail__container {
+  .post-detail-wrapper__container {
     border-left: 1px solid rgba(236, 236, 236, 0.3);
     border-right: 1px solid rgba(236, 236, 236, 0.3); }
+    .post-detail-wrapper__container .content-header {
+      padding: 12px; }
+      .post-detail-wrapper__container .content-header a {
+        color: white;
+        display: flex;
+        align-items: center;
+        font-size: 14px; }
+        .post-detail-wrapper__container .content-header a svg {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          padding: 2px; }
+          .post-detail-wrapper__container .content-header a svg:hover {
+            background-color: rgba(32, 35, 39, 0.5); }
+        .post-detail-wrapper__container .content-header a span {
+          margin-left: 20px;
+          font-size: 20px;
+          font-weight: 600; }
+    .post-detail-wrapper__container .comments-header {
+      padding: 12px; }

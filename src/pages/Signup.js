@@ -23,6 +23,7 @@ const Signup = () => {
       password: ''
     },
     onSubmit: (values) => {
+      console.log(values)
       users?.forEach(user => {
         if(user.email === values.email || user.username === values.username) {
           alert("Username or email already using!")
@@ -32,6 +33,9 @@ const Signup = () => {
           navigate("/")
         }
       });
+      dispatch(createUser({...values, photo: file}));
+      dispatch(loginUser({...values, photo: file}));
+      navigate("/")
     }
   });
 

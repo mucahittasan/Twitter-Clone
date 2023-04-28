@@ -1,6 +1,6 @@
-import {BsImage} from 'react-icons/bs'
-import {BsEmojiSmile} from 'react-icons/bs'
-import {TbCalendarStats} from 'react-icons/tb'
+import { BsImage } from 'react-icons/bs'
+import { BsEmojiSmile } from 'react-icons/bs'
+import { TbCalendarStats } from 'react-icons/tb'
 
 import { createPost } from '../redux/post/postSlice'
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,60 +22,60 @@ const TweetForm = () => {
         setFile(null)
     }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    const post = {
-        id: nanoid(),
-        article: article,
-        actionName: "post",
-        image: file,
-        comments: [],
-        detailCheck: false,
-        likeCheck: false,
-        commentCheck: false,
-        likeCount: 0,
+        const post = {
+            id: nanoid(),
+            article: article,
+            actionName: "post",
+            image: file,
+            comments: [],
+            detailCheck: false,
+            likeCheck: false,
+            commentCheck: false,
+            likeCount: 0,
+        }
+
+        dispatch(createPost(post))
+        clearForm();
     }
 
-    dispatch(createPost(post))
-    clearForm();
-  }
 
+    return (
+        <>
+            <div className="tweet-header">
+                <h2>Anasayfa</h2>
+            </div>
+            <div className='tweet-form'>
+                <form>
+                    <div className="form-input">
+                        <img src={currentUser?.photo} alt="" />
+                        <input max={20} onChange={(e) => setArticle(e.target.value)} value={article} type="text" placeholder="Neler oluyor?" />
+                    </div>
+                    {file && <div className="choose-image">
+                        <img src={file} alt="" />
+                    </div>}
+                    <div className="form-footer">
+                        <div className="form-footer__icons">
+                            <label>
+                                <BsImage />
+                                <FileBase64 multiple={false} onDone={({ base64 }) => setFile(base64)} />
+                            </label>
+                            <button>
+                                <BsEmojiSmile />
+                            </button>
+                            <button>
+                                <TbCalendarStats />
+                            </button>
+                        </div>
+                        <button onClick={(e) => handleSubmit(e)} type='submit' className='tweet-button'>Tweetle</button>
+                    </div>
+                </form>
+            </div>
+        </>
 
-  return (
-    <>
-    <div className="tweet-header">
-        <h2>Anasayfa</h2>
-    </div>
-    <div className='tweet-form'>
-        <form>
-            <div className="form-input">
-                <img src={currentUser.photo} alt="" />
-                <input max={20} onChange={(e) => setArticle(e.target.value)} value={article} type="text" placeholder="Neler oluyor?" />
-            </div>
-            {file &&  <div className="choose-image">
-                <img src={file} alt="" />
-            </div>}
-            <div className="form-footer">
-                <div className="form-footer__icons">
-                    <label>
-                        <BsImage />
-                        <FileBase64 multiple={false} onDone={({base64}) => setFile(base64)} />
-                    </label>
-                    <button>
-                        <BsEmojiSmile />
-                    </button>
-                    <button>
-                        <TbCalendarStats />
-                    </button>
-                </div>
-                <button onClick={(e) => handleSubmit(e) }  type='submit' className='tweet-button'>Tweetle</button>
-            </div>
-        </form>
-    </div>
-    </>
-    
-  )
+    )
 }
 
 export default TweetForm

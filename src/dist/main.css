@@ -543,8 +543,7 @@ body {
           background-color: #200914; }
     .post-content .post-text {
       margin-top: -16px;
-      color: white;
-      height: 30px; }
+      color: white; }
       @media (max-width: 500px) {
         .post-content .post-text {
           margin-top: 0; } }

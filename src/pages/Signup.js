@@ -5,7 +5,7 @@ import FileBase64 from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { useState } from 'react';
-import { createUser, loginUser } from '../redux/user/userSlice';
+import { createUser } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Signup = () => {

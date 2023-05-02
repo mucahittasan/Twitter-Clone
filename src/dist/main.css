@@ -9,7 +9,8 @@
 body {
   background-color: black;
   color: #e7e9ea;
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow-x: hidden; }
 
 .main {
   max-width: 1250px;

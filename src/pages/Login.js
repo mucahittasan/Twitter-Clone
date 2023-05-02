@@ -4,12 +4,9 @@ import { useFormik } from 'formik';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../redux/user/userSlice';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-
-  const location = useLocation();
-  console.log(location)
 
   const dispatch = useDispatch();
   const navigate = useNavigate()

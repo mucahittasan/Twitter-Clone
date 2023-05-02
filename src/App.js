@@ -15,8 +15,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={currentUser ? <Home /> : <Navigate to="/login-screen " />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Signup />} />
+      <Route path="/login" element={!currentUser ? <Login /> : <Navigate to="/" />} />
+      <Route path="/register" element={!currentUser ? <Signup /> : <Navigate to="/" />} />
       <Route path="/login-screen" element={<LoginPage />} />
       <Route path="/post/:id" element={currentUser ? <PostDetail /> : <Navigate to="/login" />} />
       <Route path="*" element={<NotFound />} />
